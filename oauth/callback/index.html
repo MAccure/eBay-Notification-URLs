@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OAuth Callback — LLM Nirvana</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 2rem; line-height: 1.6; max-width: 900px; }
+    code { background: #f4f4f4; padding: .2rem .4rem; border-radius: 6px; }
+    pre { background: #f4f4f4; padding: 1rem; border-radius: 12px; overflow: auto; }
+  </style>
+</head>
+<body>
+  <a href="/">← Home</a>
+  <h1>OAuth Callback</h1>
+  <p>This static page captures query parameters returned by an OAuth flow (e.g., <code>?code=...</code>, <code>?state=...</code>).</p>
+  <p><strong>Note:</strong> For production, you typically need a server to exchange the <code>code</code> for tokens. This page is a safe placeholder that confirms the redirect landed correctly.</p>
+  <h2>Received Parameters</h2>
+  <pre id="out"></pre>
+  <script>
+    const params = Object.fromEntries(new URLSearchParams(window.location.search).entries());
+    document.getElementById('out').textContent = JSON.stringify(params, null, 2);
+  </script>
+</body>
+</html>
